@@ -33,6 +33,7 @@
     <main class="section" id="about">
         <h2 class="about-me">Este soy yo</h2>
         <div class="about-content">
+            <div class="cat-hotspot" data-tooltip="Yo soy París, su fiel compañera de teclado, tengo al ratón a raya!" style="bottom: 0%; left: 76%; width: 105px; height: 180px;"></div>
             <?php foreach ($portfolio['bio'] as $bioLine): ?>
                 <p class="about-text"><?= htmlspecialchars($bioLine); ?></p>
             <?php endforeach; ?>
