@@ -40,7 +40,7 @@
     </main>
 
     <main class="section" id="skills">
-        <h2>Que es lo que mas domino</h2>
+        <h2>Mi stack tecnológico</h2>
         <div class="skills-grid">
             <?php foreach ($portfolio['skillIcons'] as $index => $skill): ?>
             <article class="skill-card" data-tooltip="<?= htmlspecialchars($skill['tooltip'] ?? '', ENT_QUOTES) ?>" data-skill-name="<?= htmlspecialchars($skill['name'], ENT_QUOTES) ?>">
