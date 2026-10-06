@@ -45,13 +45,24 @@ $portfolio = [
     'education' => [
         [
             'degree' => 'Técnico Superior en Desarrollo de Aplicaciones Web',
-            'institution' => 'IES Mare Nostrum',
+            'institution' => 'IES Mare Nostrum (Alicante)',
+            'location' => 'https://maps.app.goo.gl/4ymViVV3DqJwYHp27',
+            'logo' => 'formacion/ies-marenostrum.jpg',
             'period' => '2016 - 2018'
         ],
         [
             'degree' => 'Técnico en Emergencias Sanitarias',
-            'institution' => 'IES Leonardo Da Vinci',
+            'institution' => 'IES Leonardo Da Vinci (Alicante)',
+            'location' => 'https://maps.app.goo.gl/qypkPTmfcDyBhZX19',
+            'logo' => 'formacion/ies-leonardodavinci.jpg',
             'period' => '2014 - 2016'
+        ],
+        [
+            'degree' => 'Técnico en Explotación de Sistemas Informáticos',
+            'institution' => 'IES Juan de la Cierva (Madrid)',
+            'location' => 'https://maps.app.goo.gl/UHVJzsZaxFfFjGpM7',
+            'logo' => 'formacion/ies-juandelacierva.jpg',
+            'period' => '2016 - 2018'
         ],
     ],
     'skills' => [
@@ -62,18 +73,18 @@ $portfolio = [
         'Gestión de Versiones' => ['Git'],
     ],
 'skillIcons' => [
-        ['name' => 'PHP', 'icon' => 'php.svg', 'tooltip' => 'Lenguaje principal desde 2010\nSymfony, Laravel, APIs REST'],
-        ['name' => 'Symfony', 'icon' => 'symfony.svg', 'tooltip' => 'Framework PHP favorito\nComponentes, Doctrine, Messenger'],
-        ['name' => 'Linux', 'icon' => 'linux.svg', 'tooltip' => 'Entorno de trabajo diario\nBash, Docker, servidores VPS'],
-        ['name' => 'MySQL', 'icon' => 'mysql.svg', 'tooltip' => 'Base de datos relacional principal\nOptimización, índices, replicación'],
-        ['name' => 'Redis', 'icon' => 'redis.svg', 'tooltip' => 'Cache y colas de mensajes\nPub/Sub, sesiones, rate limiting'],
-        ['name' => 'Git', 'icon' => 'git.svg', 'tooltip' => 'Control de versiones esencial\nRebase, cherry-pick, workflows'],
-        ['name' => 'Javascript', 'icon' => 'javascript.svg', 'tooltip' => 'Frontend y Node.js\nES6+, TypeScript, Vue/React'],
-        ['name' => 'Perl', 'icon' => 'perl.svg', 'tooltip' => 'Legacy y scripting potente\nRegex, CPAN, mantenimiento'],
-        ['name' => 'dotNet', 'icon' => 'dotnet.svg', 'tooltip' => 'C# y .NET Core\nEntity Framework, Azure'],
-        ['name' => 'GitLab', 'icon' => 'gitlab.svg', 'tooltip' => 'CI/CD y gestión de repos\nPipelines, Registry, Issues'],
-        ['name' => 'SQLite', 'icon' => 'sqlite.svg', 'tooltip' => 'BD embebida ligera\nTesting, apps locales, edge'],
-        ['name' => 'OCode', 'icon' => 'ocode.svg', 'tooltip' => 'Editor de código propio\nExtensible, ligero, open source'],
+        ['name' => 'PHP', 'icon' => 'php.svg', 'tooltip' => 'Llevo trabajando con éste lenguaje desde 2017. Es mi lenguage de predilección.'],
+        ['name' => 'Symfony', 'icon' => 'symfony.svg', 'tooltip' => 'Aprendiendo a diario con Symfony desde 2023. Desarrollo principal de mi actual proyecto.'],
+        ['name' => 'UNIX/Linux', 'icon' => 'linux.svg', 'tooltip' => 'Desde 2007 como entorno de trabajo diario. Shell scripting y Mantenimiento, tambien habitualmente como sistema operativo doméstico.'],
+        ['name' => 'MySQL', 'icon' => 'mysql.svg', 'tooltip' => 'Base de datos por excelencia en la inmensa mayoría de proyectos en los que he colaborado.'],
+        ['name' => 'Redis', 'icon' => 'redis.svg', 'tooltip' => 'Tanto en la parte de desarrollo como en la de sistemas, está en mi día a día.'],
+        ['name' => 'Git', 'icon' => 'git.svg', 'tooltip' => 'Control de versiones, tanto en linea de comando como desde plataformas como GitLab'],
+        ['name' => 'Javascript', 'icon' => 'javascript.svg', 'tooltip' => 'Scripting ocasional, mi formación inicial se hizo con este lenguaje.'],
+        ['name' => 'Perl', 'icon' => 'perl.svg', 'tooltip' => 'Durante 3 años, estuve manteniendo un proyecto con Perl 5.20.'],
+        ['name' => '.NET', 'icon' => 'dotnet.svg', 'tooltip' => 'Mantenimiento de dos proyectos con backend .NET, sobre todo C# y Visual Basic.'],
+        ['name' => 'GitLab', 'icon' => 'gitlab.svg', 'tooltip' => 'Integración contínua, mantenimiento y distribución de releases desde la plataforma y manejo integral de su API.'],
+        ['name' => 'SQLite', 'icon' => 'sqlite.svg', 'tooltip' => 'Integración en proyectos sencillos y personales desde hace ya varios años.'],
+        ['name' => 'OpenCode', 'icon' => 'ocode.svg', 'tooltip' => 'Desde 2025, es mi inseparable ayudante para mis proyectos tanto personales como profesionales.'],
     ],
     'certifications' => [
         [
