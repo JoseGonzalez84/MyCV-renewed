@@ -83,14 +83,79 @@ $portfolio = [
         [
             'title' => 'Desarrollo de aplicaciones Web con NodeJS y Express',
             'issuer' => 'OpenWebinars',
-            'date' => 'Ene 2024',
-            'link' => 'https://openwebinars.net/cert/cSKo'
+            'date' => 'ene. 2024',
+            'link' => 'https://openwebinars.net/cert/cSKo',
+            'description' => 'Core de NodeJS, ExpressJS, Shockets y despliegues.'
         ],
         [
             'title' => 'Curso de JavaScript Avanzado',
             'issuer' => 'OpenWebinars',
-            'date' => 'Oct 2023',
-            'link' => 'https://openwebinars.net/cert/uiz0'
+            'date' => 'oct. 2023',
+            'link' => 'https://openwebinars.net/cert/uiz0',
+            'description' => 'Estructuras de datos, promesas, asincronía y programación funcional.'
+        ],
+        [
+            'title' => 'Curso de JavaScript Intermedio',
+            'issuer' => 'OpenWebinars',
+            'date' => 'oct. 2023',
+            'link' => 'https://openwebinars.net/cert/tsYJ',
+            'description' => 'Tipos de datos avanzados, manejo del DOM y manejo de eventos.'
+        ],
+        [
+            'title' => 'Curso de HTML5 y CSS3',
+            'issuer' => 'OpenWebinars',
+            'date' => 'oct. 2023',
+            'link' => 'https://openwebinars.net/cert/PDLem',
+            'description' => 'Refuerzo y conocimiento en profundidad de HTML5 y CSS3'
+        ],
+        [
+            'title' => 'Taller de desarrollo de WebServices SOAP con PHP',
+            'issuer' => 'OpenWebinars',
+            'date' => 'sep. 2023',
+            'link' => 'https://openwebinars.net/cert/h56u',
+            'description' => 'Utilización de funcionalidades nativas de PHP para acceder a aplicaciones con SOAP.'
+        ],
+        [
+            'title' => 'Taller de TDD en PHP con PHPUnit',
+            'issuer' => 'OpenWebinars',
+            'date' => 'sep. 2023',
+            'link' => 'https://openwebinars.net/cert/x9tz',
+            'description' => 'Construcción basada en Testing de una aplicación web bajo PHP y PHPUnit.'
+        ],
+        [
+            'title' => 'Iniciación a PHPUnit',
+            'issuer' => 'OpenWebinars',
+            'date' => 'abr. 2022',
+            'link' => 'https://openwebinars.net/cert/PDLem',
+            'description' => 'Características de PHPUnit y diferentes casuísticas.'
+        ],
+        [
+            'title' => 'Programación en Python 3',
+            'issuer' => 'OpenWebinars',
+            'date' => 'abr. 2020',
+            'link' => 'https://openwebinars.net/cert/ddk6l',
+            'description' => 'Programación y desarrollo de programas con Python 3. Módulos, Programación Estructurada y POO.'
+        ],
+        [
+            'title' => 'Introducción a C++',
+            'issuer' => 'OpenWebinars',
+            'date' => 'nov. 2019',
+            'link' => 'https://openwebinars.net/cert/kkNZp',
+            'description' => 'Conocimientos introductorios a C++.'
+        ],
+        [
+            'title' => 'Pandora Engineering Course',
+            'issuer' => 'Artica PFMS',
+            'date' => 'jul. 2019',
+            'link' => '',
+            'description' => 'Conocimientos avanzados de instalación y configuración de PandoraFMS 736'
+        ],
+        [
+            'title' => 'Programación con PHP 5.3',
+            'issuer' => 'Universidad Politécnica de Madrid',
+            'date' => 'nov. 2010',
+            'link' => '',
+            'description' => 'Desarrollo de aplicaciones web bajo PHP 5.3, manipulación de XML y acceso a BBDD.'
         ],
     ],
     'projects' => [

@@ -74,6 +74,43 @@
             </div>
             <?php endforeach; ?>
         </div>
+
+        <details class="education-certifications">
+            <summary class="education-certifications-summary">
+                <span>Otros cursos y certificaciones</span>
+                <svg class="education-certifications-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="education-certifications-content">
+                <?php
+                $certs = $portfolio['certifications'];
+                usort($certs, function($a, $b) {
+                    return strtotime($b['date']) - strtotime($a['date']);
+                });
+                foreach ($certs as $index => $cert): ?>
+                <article class="education-certification-item <?= $index % 2 === 0 ? 'education-certification-left' : 'education-certification-right' ?>">
+                    <div class="education-certification-card">
+                        <header class="education-certification-header">
+                            <time class="education-certification-date"><?= htmlspecialchars($cert['date']) ?></time>
+                        </header>
+                        <div class="education-certification-body">
+                            <h4 class="education-certification-title"><?= htmlspecialchars($cert['title']) ?></h4>
+                            <p class="education-certification-issuer"><?= htmlspecialchars($cert['issuer']) ?></p>
+                        </div>
+                        <footer class="education-certification-footer">
+                            <?php if (!empty($cert['link'])): ?>
+                            <a href="<?= htmlspecialchars($cert['link']) ?>" target="_blank" rel="noopener noreferrer" class="education-certification-link">
+                                Ver certificado
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <?php else: ?>
+                            <span class="education-certification-unavailable">No hay enlace para ver el certificado</span>
+                            <?php endif; ?>
+                        </footer>
+                    </div>
+                </article>
+                <?php endforeach; ?>
+            </div>
+        </details>
     </main>
 
     <main class="section" id="experience">
