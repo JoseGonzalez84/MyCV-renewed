@@ -1,4 +1,6 @@
 <?php
+require_once 'RestClient.php';
+
 $portfolio = [
     'name' => 'José González Silva',
     'role' => 'Backend Senior Developer',
@@ -158,24 +160,27 @@ $portfolio = [
             'description' => 'Desarrollo de aplicaciones web bajo PHP 5.3, manipulación de XML y acceso a BBDD.'
         ],
     ],
-    'projects' => [
-        [
-            'title' => 'CV en Astro',
-            'description' => 'Mi currículum interactivo desarrollado con Astro',
-            'image' => 'profile.jpg',
-            'link' => '#'
-        ],
-        [
-            'title' => 'Sistema de Comunicaciones',
-            'description' => 'Sistema de comunicaciones en la nube para LCRCom',
-            'image' => '#',
-            'link' => '#'
-        ],
-        [
-            'title' => 'MeetIp Pro',
-            'description' => 'Mejoras y features para plataforma de comunicaciones',
-            'image' => '#',
-            'link' => '#'
-        ],
-    ],
+    'projects' => [],
 ];
+
+
+
+$client = new RestClient('https://api.github.com/users/JoseGonzalez84');
+
+// Petición GET con parámetros
+$response = $client->get('/repos', ['sort' => 'pushed', 'direction' => 'desc', 'per_page' => 12]);
+$projects = [];
+
+if ($response['success']) {
+    $projectFields = ['id', 'name', 'description', 'html_url', 'language', 'updated_at', 'clone_url'];
+
+    foreach ($response['data'] as $project) {
+        if (!empty($project['fork'])) {
+            continue;
+        }
+
+        $projects[] = array_intersect_key($project, array_flip($projectFields));
+    }
+
+    $portfolio['projects'] = $projects;
+}

@@ -1,4 +1,7 @@
-<?php include 'config.php'; ?>
+<?php 
+    require_once 'config.php';
+    require_once 'RestClient.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -132,26 +135,96 @@
     </main>
 
     <main class="section" id="projects">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-            <?php foreach ($portfolio['projects'] as $project): ?>
-            <div class="project-card">
-                <img src="images/<?= htmlspecialchars($project['image']); ?>" alt="<?= htmlspecialchars($project['title']); ?>">
-                <div>
-                    <h3><?= htmlspecialchars($project['title']); ?></h3>
-                    <p><?= htmlspecialchars($project['description']); ?></p>
-                    <a href="<?= htmlspecialchars($project['link']); ?>" class="btn">Ver detalles</a>
-                </div>
+        <h2 id="projects-title">Proyectos Destacados</h2>
+        <div class="projects-carousel" role="region" aria-labelledby="projects-title">
+            <div class="projects-carousel-controls">
+                <button class="projects-carousel-button" type="button" data-direction="previous" aria-label="Ver proyectos anteriores" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6" /></svg>
+                </button>
+                <button class="projects-carousel-button" type="button" data-direction="next" aria-label="Ver proyectos siguientes" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg>
+                </button>
             </div>
+            <div class="projects-track" aria-label="Proyectos">
+            <?php foreach ($portfolio['projects'] as $project): ?>
+                <?php
+                    $projectName = $project['name'] ?? $project['title'] ?? 'Proyecto';
+                    $projectUrl = $project['html_url'] ?? $project['link'] ?? '#';
+                    $language = $project['language'] ?? '';
+                    $languageKey = strtolower($language);
+                    $languageClasses = [
+                        'php' => 'php',
+                        'javascript' => 'javascript',
+                        'shell' => 'shell',
+                        'bash' => 'shell',
+                        'python' => 'python',
+                    ];
+                    $languageLabels = [
+                        'php' => 'PHP',
+                        'javascript' => 'JS',
+                        'shell' => 'SH',
+                        'bash' => 'SH',
+                        'python' => 'Py',
+                    ];
+                    $languageClass = $languageClasses[$languageKey] ?? 'other';
+                    $languageLabel = $languageLabels[$languageKey] ?? ($language !== '' ? strtoupper(substr($language, 0, 2)) : 'N/A');
+                ?>
+                <article class="project-card">
+                    <h3><?= htmlspecialchars($projectName); ?></h3>
+                    <p><?= htmlspecialchars($project['description'] ?? 'Sin descripción disponible.'); ?></p>
+                    <div class="project-card-footer">
+                        <?php if ($language !== ''): ?>
+                            <span class="project-language project-language--<?= htmlspecialchars($languageClass); ?>" role="img" aria-label="Lenguaje: <?= htmlspecialchars($language); ?>" title="<?= htmlspecialchars($language); ?>">
+                                <?= htmlspecialchars($languageLabel); ?>
+                            </span>
+                        <?php endif; ?>
+                        <a class="project-link" href="<?= htmlspecialchars($projectUrl); ?>" target="_blank" rel="noopener noreferrer" aria-label="Abrir <?= htmlspecialchars($projectName); ?> en GitHub">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M10 14 21 3M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6" /></svg>
+                        </a>
+                    </div>
+                </article>
             <?php endforeach; ?>
+            <?php if (empty($portfolio['projects'])): ?>
+                <p class="projects-empty">No hay proyectos disponibles en este momento.</p>
+            <?php endif; ?>
+            </div>
         </div>
     </main>
 
     <footer id="contact">
-        <p>© 2024 José González Silva. <a href="<?= htmlspecialchars($portfolio['linkedin']); ?>">LinkedIn</a> | <a href="<?= htmlspecialchars($portfolio['github']); ?>">GitHub</a></p>
+        <p>© 2026 José González Silva. <a href="<?= htmlspecialchars($portfolio['linkedin']); ?>">LinkedIn</a> | <a href="<?= htmlspecialchars($portfolio['github']); ?>">GitHub</a></p>
     </footer>
 
     <script>
+        document.querySelectorAll('.projects-carousel').forEach(carousel => {
+            const track = carousel.querySelector('.projects-track');
+            const previousButton = carousel.querySelector('[data-direction="previous"]');
+            const nextButton = carousel.querySelector('[data-direction="next"]');
+
+            function updateCarouselControls() {
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                previousButton.disabled = track.scrollLeft <= 1;
+                nextButton.disabled = track.scrollLeft >= maxScroll - 1;
+            }
+
+            function scrollCarousel(direction) {
+                const card = track.querySelector('.project-card');
+                if (!card) return;
+
+                const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+                track.scrollBy({
+                    left: direction * (card.getBoundingClientRect().width + gap),
+                    behavior: 'smooth'
+                });
+            }
+
+            previousButton.addEventListener('click', () => scrollCarousel(-1));
+            nextButton.addEventListener('click', () => scrollCarousel(1));
+            track.addEventListener('scroll', updateCarouselControls, { passive: true });
+            window.addEventListener('resize', updateCarouselControls);
+            updateCarouselControls();
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
